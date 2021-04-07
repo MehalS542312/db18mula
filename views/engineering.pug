@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+  p Without education no human can survive in this fast paced technological world.
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let engineering  = [
+                    {
+                        "college": "mallareddy",
+                        "fee":345789,
+                        "branch": "cse"                        
+                    },
+                    {
+                        "college": "cvr",
+                        "fee": 100450,
+                        "branch": "ece"
+                    },
+                    {
+                        "college": "cbit",
+                        "fee": 345241,
+                        "branch": "civil"
+                    },                   
+                ]
+            each e in engineering
+                div(class="col-sm-2") #{e.college}
+                br
+                br
+                div(class="col-sm-2") #{e.fee}
+                div(class="col-sm-2") #{e.branch}
