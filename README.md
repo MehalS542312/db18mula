@@ -1,2 +1,2 @@
 # wab18mula
-flower class attributes are name(string) cost(number) brand(string)
+Engineering class attributes are college(string) fee(number) branch(string)
