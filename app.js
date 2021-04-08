@@ -15,7 +15,7 @@ var engineeringRouter = require('./routes/engineering');
 var starsRouter = require('./routes/stars');
 var slotRouter = require('./routes/slot');
 var Engineering = require("./models/engineering");
-var Resource = require('./route/resource');
+var resourceRouter = require('./routes/resource');
 
 
 
