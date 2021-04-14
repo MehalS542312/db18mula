@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+
+  - let engineeringid = toShow._id
+  - let engineeringcollege = toShow.college
+  - let engineeringfee = toShow.fee
+  - let engineeringbranch = toShow.branch
+  div
+    div.row
+      div(class='engineeringAttr mr-3') Engineering ID is:
+      div #{engineeringid}
+    div.row
+      div(class='engineeringAttr mr-3') Engineering college is:
+      div #{engineeringcollege}
+    div.row
+      div(class='engineeringAttr mr-3') Engineering branch is:
+      div #{engineeringbranch}
+    div.row
+      div(class='engineeringAttr mr-3') Engineering fee is:
+      div #{engineeringfee}
+
