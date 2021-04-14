@@ -41,10 +41,19 @@ exports.engineering_create_post = async function(req, res) {
     res.error(500,`{"error": ${err}}`);
     }
     };
-// Handle Costume delete form on DELETE.
-exports.engineering_delete = function(req, res) {
-res.send('NOT IMPLEMENTED: Engineering delete DELETE ' + req.params.id);
-};
+    //Handle Costume delete on DELETE.
+    exports.engineering_delete = async function(req, res) {
+        console.log("delete "  + req.params.id)
+        try {//
+            result = await Engineering.findByIdAndDelete( req.params.id)
+            console.log("Removed " + result)
+            res.send(result)
+        } catch (err) {
+            res.status(500)
+            res.send(`{"error": Error deleting ${err}}`);
+        }
+    };
+    
 // Handle Costume update form on PUT.
 exports.engineering_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
