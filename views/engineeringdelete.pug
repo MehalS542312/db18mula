@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let engineeringid = toShow._id
+    - let engineeringcollege = toShow.college
+    - let engineeringfee = toShow.fee
+    - let engineeringbranch = toShow.branch
+    - let actionid = "/resource/engineering/" + engineeringid
+    script let actionid = "#{actionid}"
+    div
+      div.row
+        div(class='engineeringAttr mr-3') Engineering ID is:
+        div #{engineeringid}
+      div.row
+        div(class='engineeringAttr mr-3') Engineering College is:
+        div #{engineeringcollege}
+      div.row
+        div(class='engineeringAttr mr-3') Engineering Branch is:
+        div #{engineeringbranch}
+      div.row
+        div(class='engineeringAttr mr-3') Engineering Fee is:
+        div #{engineeringfee}
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+      // Go back to the home page for the costume collection
+      window.location.href='/engineering'
+    }
+  script.
+    function deleteOnid() {
+      console.log("starting delete")
+      // delete first
+      fetch(actionid, {
+        method: 'DELETE'      // Don't need a body for the delete
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Delete succeded")
+        window.location.href='/engineering'
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Delete failed " + error )
+      });
+    }

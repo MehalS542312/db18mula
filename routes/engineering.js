@@ -8,3 +8,8 @@ module.exports = router;
 router.get('/detail', engineering_controlers.engineering_view_one_Page);
 /* GET create costume page */
 router.get('/create', engineering_controlers.engineering_create_Page);
+/* GET create update page */
+router.get('/update', engineering_controlers.engineering_update_Page);
+/* GET create costume page */
+router.get('/delete', engineering_controlers.engineering_delete_Page);
+
