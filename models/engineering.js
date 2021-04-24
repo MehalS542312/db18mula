@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 const engineeringSchema = mongoose.Schema({
-college: String,
+college: {
+       type: String,
+       minLength: 5
+        },
 branch: String,
 fee: {
     type:Number,
