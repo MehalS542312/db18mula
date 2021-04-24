@@ -2,16 +2,22 @@ extends layout
 
 block content
     h1= title
-    p Without education no human can survive in this fast paced technological world.
+    
     div(class="container-fluid")
         div(class="row")
             -
                 let engineering  = results
 
             each e in engineering
-                - let destination = `dispatch(\"/engineering/update?id=${e._id}\")`
-                div(class="row-sm-2" class='m-1') Engineering #{e.college}(#{e.fee}) is #{e.branch}
-                    button(class="btn-primary ml-1", onclick=destination) Update
+               - let destination = `dispatch(\"/engineering/update?id=${e._id}\")`
+                - let detail = `dispatch(\"/engineering/detail?id=${e._id}\")`
+                - let del = `dispatch(\"/engineering/delete?id=${e._id}\")`
+
+                div(class="row-sm-2" class='m-1') Engineering #{e.college}(#{e.branch}) is #{e.fee}
+                    button.btn(class="btn-success ml-1", onclick=detail) Detail
+                    button.btn(class="btn-primary ml-1", onclick=destination) Update
+                    button.btn(class="btn-danger ml-1", onclick=del) Delete
+                
             script.
                 function dispatch(path){
                     window.location.href = path
