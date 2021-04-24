@@ -38,7 +38,7 @@ exports.engineering_create_post = async function(req, res) {
     res.send(result);
     }
     catch(err){
-    res.error(500,`{"error": ${err}}`);
+        res.status(500).send("Not a valid pen");
     }
     };
     //Handle Costume delete on DELETE.
@@ -96,6 +96,7 @@ exports.engineering_view_one_Page = async function(req, res) {
     catch(err){
         res.status(500)
         res.send(`{'error': '${err}'}`);
+        
     }
 };
 

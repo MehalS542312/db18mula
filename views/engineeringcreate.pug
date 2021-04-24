@@ -3,20 +3,20 @@ extends layout
 block content
   h1= title
 
-  form(id='EngineeringForm', action="/resource/engineering", method="POST")
+  form(id='engineeringForm', action="/resource/engineering", method="POST")
     div.form-group
-        label.engineeringAttr(for='engineeringcollege') Engineering college
-        input#engineeringcollege(type='text', name='engineeringcollege')
+        label.engineeringAttr(for='engineeringcollege') College Name
+        input#collegename(type='text', name='name')
     div.form-group
-        label.engineeringAttr(for='branch') Engineering branch
+        label.engineeringAttr(for='branch') Engineering Branch
         input#branch(type='text', name='branch')
     div.form-group
-        label.engineeringAttr(for='fee') Engineering fee
+        label.engineeringAttr(for='fee') Engineering Fee
         input#fee(type='number', name='fee')
     input(type="submit")
 
   script.
-    document.forms['EngineeringForm'].addEventListener('submit', (event) => {
+    document.forms['engineeringForm'].addEventListener('submit', (event) => {
       event.preventDefault();
       // TODO do something here to show user that form is being submitted
       fetch(event.target.action, {
@@ -32,4 +32,3 @@ block content
         alert("Save failed " + error )
       });
     });
-
